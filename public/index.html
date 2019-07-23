@@ -1,0 +1,136 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>My Wine Store</title>
+  <meta name="My Wine Store" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../js/getGrapes.js"></script>
+  <script src="../js/validator.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style type="text/css">
+    #JS{display: none;}
+  </style>
+  <script>
+    function checkJS(){
+      document.getElementById('JS').style.display = "inline";
+    }
+  </script>
+
+
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body onload="checkJS();">
+ 
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+<div id="main">
+  <h1>Add a new wine</h1>
+    <div id="JS">
+      <form method="post" action="create.php" onsubmit="return validate_input(this)">
+        <h4>Please complete all fields</h4>
+          Select a style:<br/>
+          <div class="style_container">
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="White"> White</div>
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Red"> Red</div>
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Rose"> Rose</div>
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Orange"> Orange</div>
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Sparkling"> Sparkling</div>
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Sherry"> Sherry</div>
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Port"> Port</div>
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Desert"> Desert</div>
+            <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Misc"> Misc</div>
+          </div><span class ="error_message" id="wine_style_error"></span><br/>
+          
+         
+
+          Enter name: a full description of the bottle <br/><input type="text" size="50" pattern="[a-zA-Z,0-9 \-,]*" title="Maximum 100 characters" name="wine_name" id="wine_name"/><span class ="error_message" id="wine_name_error"></span><br/>
+
+
+          <script>
+            AjaxRequest();
+          </script>
+          <br/><div id="AjaxResponse"></div><span class ="error_message" id="wine_grape_error"></span><br/>
+
+          Enter producer: name of producer or wholesaler - currently does not accept accents! <br/><input type="text" pattern="[a-zA-Z \-,]*" title="Maximum 100 characters" name="wine_producer" id="wine_producer"/><span class ="error_message" id="wine_producer_error"></span><br/>
+
+          Enter year: dates between 1900 and now!(four digit format e.g. 2001) <br/><input type="number" min="1900"  name="wine_year" id="wine_year"/><span class ="error_message" id="wine_year_error"></span><br/>
+          
+          Enter region: Country and or locality <br/><input type="text" pattern="[a-zA-Z -,]*" title="Maximum 100 characters" name="wine_region" id="wine_region"/><span class ="error_message" id="wine_region_error"></span><br/>
+
+          Enter number of bottles <br/><input type="number" min="0"  max="9999" name="wine_stock" id="wine_stock"/><span class ="error_message" id="wine_stock_error"></span><br/>
+
+          <input type="submit" value ="Click to add to your collection"/>
+          
+      </form>
+    </div>
+
+    <noscript>
+      <div id="noJS">
+        <form method="post" action="create.php">
+          <h4>Please complete all fields</h4>
+            Select a style:<br/>
+            <div class="style_container">
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="White"> White</div>
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Red"> Red</div>
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Rose"> Rose</div>
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Orange"> Orange</div>
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Sparkling"> Sparkling</div>
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Sherry"> Sherry</div>
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Port"> Port</div>
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Desert"> Desert</div>
+              <div class="style_item"><input type="radio" name = "wine_style" id="wine_style" value="Misc"> Misc</div>
+            </div><span class ="error_message" id="wine_style_error"></span><br/>
+            
+            Enter name: a full description of the bottle <br/><input type="text" size="100"pattern="[a-zA-Z ]*" title="Maximum 100 characters" name="wine_name" id="wine_name"/><br/>
+
+            Enter grape: pinot noir, chardonnay... <br/><input type="text" pattern="[a-zA-Z -,]*" title="Maximum 50 characters" name="wine_grape" id="wine_grape"/><br/>
+
+            Enter producer: name of producer or wholesaler - currently does not accept accents! <br/><input type="text" pattern="[a-zA-Z -,]*" title="Maximum 100 characters" name="wine_producer" id="wine_producer"/><br/>
+
+            Enter year: dates between 1900 and now!(four digit format e.g. 2001) <br/><input type="number" min="1900"  name="wine_year" id="wine_year"/><br/>
+            
+            Enter region: Country and or locality <br/><input type="text" pattern="[a-zA-Z -,]*" title="Maximum 100 characters" name="wine_style" id="wine_style"/><br/>
+
+            Enter number of bottles <br/><input type="number" min="0"  max="9999" name="wine_stock" id="wine_stock"/><br/>
+
+            <input type="submit" value ="Click to add to your collection"/>
+        </form>
+      </div>
+    </noscript>
+
+
+
+
+
+
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</div>
+</body>
+
+</html>

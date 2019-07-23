@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wine_applications>
+  <application>
+    <type ID='wine'>
+      <location>wine3.php</location>
+    </type>
+  </application>
+  <application>
+    <type ID='selectbox'>
+      <location>getGrapes2.php</location>
+    </type>
+  </application>
+  <application>
+    <type ID="grapes">
+      <location>grapes.xml</location>
+    </type>
+  </application>
+</wine_applications>

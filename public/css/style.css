@@ -1,0 +1,33 @@
+#main{
+  display: block;
+  width: 85%;
+  margin: 5px auto;
+  background-color: silver;
+  border-color: grey;
+  padding: 5px;
+}
+
+.error_message{
+  color: red;
+  font-style: arial;
+  font-style: italic underline;
+  font-size: 10px;
+
+}
+
+.invalid{
+  border-color: red;
+}
+
+.style_container{
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+   grid-auto-rows: 20px;
+   grid-gap: 5px;
+}
+
+.stytle_item{
+    background: grey;
+    text-align: center;
+    border: 1px solid silver;
+}

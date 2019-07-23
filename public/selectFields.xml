@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grapes>
+  <grape>Albarino</grape>
+  <grape>Cabernet Sauvignon</grape>
+  <grape>Chardonnay</grape>
+  <grape>Gewurztraminer</grape>
+  <grape>Grenache</grape>
+  <grape>Gruner veltliner</grape>
+  <grape>Malbec</grape>
+  <grape>Merlot</grape>
+  <grape>Pinot Gris</grape>
+  <grape>Pinot Noir</grape>
+  <grape>Riesling</grape>
+  <grape>Sauvignon Blanc</grape>
+  <grape>Syrah/Shiraz</grape>
+  <grape>Tempranillo</grape>
+  <grape>Viognier</grape>
+  <grape>Multiple</grape>
+  <grape>Other</grape>
+</grapes> 

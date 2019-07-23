@@ -1,0 +1,16 @@
+{
+    "name": "julesjam/test1",
+    "description": "Test PHP",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julian Wyatt",
+            "email": "julian.wyatt@julesjam.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "symfony/var-dumper": "^4.3"
+    }
+}
