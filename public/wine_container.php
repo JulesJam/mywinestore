@@ -1,7 +1,7 @@
 <?php
   class Wine_container
     {
-      private $app
+      private $app;
       private $dog_location;
       function __construct($value){
         if (function_exists('clean_input')){
@@ -26,11 +26,11 @@
             if($valueID == $this->app){
               $xmlLocation = $searchNode->getElementsByTagName("location");
               return $xmlLocation->item(0)->nodeValue;
-              break
+              break;
             }
           }
         }
-        return FALSE
+        return FALSE;
       }
 
       function create_object($properties_array){
@@ -41,6 +41,7 @@
         else {
           require_once($wine_loc);
           $class_array = get_declared_classes();
+          $last_position = count($class_array)-1;
           $class_name = $class_array[$last_position];
           $wine_object = new $class_name($properties_array);
 
