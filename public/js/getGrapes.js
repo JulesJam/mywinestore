@@ -22,14 +22,14 @@ function getXMLHttp(){
   return xmlHttp;
 }
 
-function AjaxRequest(){
+function AjaxRequest($value){
   let xmlHttp = getXMLHttp();
   xmlHttp.onreadystatechange = function(){
     if(xmlHttp.readyState == 4 ){
       handleResponse(xmlHttp.responseText);
     }
   }
-  xmlHttp.open("GET", "getGrapes.php", true);
+  xmlHttp.open("GET", $value, true);
   xmlHttp.send(null);
 }
 

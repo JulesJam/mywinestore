@@ -62,7 +62,7 @@
 
 
           <script>
-            AjaxRequest();
+            AjaxRequest('wine_interface.php');
           </script>
           <br/><div id="AjaxResponse"></div><span class ="error_message" id="wine_grape_error"></span><br/>
 
@@ -81,7 +81,7 @@
 
     <noscript>
       <div id="noJS">
-        <form method="post" action="create.php">
+        <form method="post" action="wine_interface.php">
           <h4>Please complete all fields</h4>
             Select a style:<br/>
             <div class="style_container">

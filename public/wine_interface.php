@@ -75,22 +75,27 @@
       }
 
     } else {
+      print "test1";
       $container = new wine_container("selectbox");
       $properties_array = array("selectbox");
+      print_r ($properties_array);
       $wine = $container->create_object($properties_array);
+      if($wine == TRUE){print "wine is true";};
       if($wine != FALSE){
         $container = new wine_container("selectbox");
+        print "trying to instanitiate select box";
         $properties_array =  array("selectbox");
         $lab = $container->create_object($properties_array);
         if($wine != FALSE){
-          $container->set_app("wines");
+          print "test3";
+          $container->set_app("grapes");
           $wine_app = $container->get_wine_application();
           $method_array = get_class_methods($wine);
           $last_position = count($method_array)-1;
           $method_name = $method_array[$last_position];
           $result = $wine->$method_name($wine_app);
           if($result == FALSE){
-            print "system error #3"; //hasn't created select box
+            print "system error #3 $wine_app"; //hasn't created select box
           } else {
             print $result; // send select box to front end
           }
@@ -110,7 +115,7 @@
         header( 'Location: http://test1.test/index.html' );
       };*/
 
-      $wine = $wine->get_wine();
+   /*   $wine1 = $wine->get_wine_app_properties();*/
 
 
 ?>
@@ -170,7 +175,7 @@
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
-  Here is the wine <?= $wine ?>
+  Here is the wine ???
 </body>
 
 </html>

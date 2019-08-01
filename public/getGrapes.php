@@ -10,7 +10,7 @@
 
     public function get_select($wine_app){
       if(($wine_app != FALSE) && (file_exists($wine_app))){
-        $grape_file = simplexml_load_file("selectFields.xml");
+        $grape_file = simplexml_load_file("grapes.xml");
         $xmlText = $grape_file->asXML();
         $this->result = "<select name='wine_grape' id='wine_grape'>";
         $this->result = $this->result ."<option>Select grape</option>";
