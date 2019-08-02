@@ -51,8 +51,9 @@
     } else {
       print "System error #1"; exit;
     }
-
+    
     if(isset($_POST['wine_app'])){
+      print "isset";
       if((isset($_POST['wine_style']))&&(isset($_POST['wine_name']))&&(isset($_POST['wine_grape']))&&(isset($_POST['wine_producer']))&&(isset($_POST['wine_year']))&&(isset($_POST['wine_region']))&&(isset($_POST['wine_stock'])))
       { $container = new wine_container(clean_input($_POST['wine_app']));
         $wine_style = clean_input($_POST['wine_style']);
@@ -63,8 +64,10 @@
         $wine_region = clean_input($_POST['wine_region']);
         $wine_stock = clean_input($_POST['wine_stock']);
         $properties_array = array($wine_style, $wine_name, $wine_grape, $wine_producer, $wine_year, $wine_region, $wine_stock);
+        print_r($properties_array);
+        $wine = $container->create_object($properties_array);
         if($wine != FALSE){
-          error_check_wine_app($wine);
+          error_check_wine($wine);
           get_wine_app_properties($wine);
         } else {
           print "System Error #2";
@@ -75,19 +78,14 @@
       }
 
     } else {
-      print "test1";
       $container = new wine_container("selectbox");
       $properties_array = array("selectbox");
-      print_r ($properties_array);
       $wine = $container->create_object($properties_array);
-      if($wine == TRUE){print "wine is true";};
       if($wine != FALSE){
         $container = new wine_container("selectbox");
-        print "trying to instanitiate select box";
         $properties_array =  array("selectbox");
-        $lab = $container->create_object($properties_array);
+        $wine = $container->create_object($properties_array);
         if($wine != FALSE){
-          print "test3";
           $container->set_app("grapes");
           $wine_app = $container->get_wine_application();
           $method_array = get_class_methods($wine);
@@ -136,7 +134,7 @@
   </style>
   <script>
     function checkJS(){
-      document.getElementById('JS').style.display = "inline";
+      document.getElementById('JS').style.display = "hidden";
       console.log("JS working");
     }
   </script>
@@ -155,14 +153,15 @@
 
 <body onload="checkJS();">
   <div id='JS'>
-    --JS--
+    For optimal performance please allow javascript
   </div>
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
   <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+
+
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
@@ -175,7 +174,6 @@
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
-  Here is the wine ???
 </body>
 
 </html>

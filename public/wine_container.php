@@ -36,12 +36,10 @@
       function create_object($properties_array){
         $wine_loc = $this->get_wine_application();
         if(($wine_loc == FALSE) || (!file_exists($wine_loc))){
-          print "test 5";
           return FALSE;
         } 
         else {
           require_once($wine_loc);
-          print "test 5";
           $class_array = get_declared_classes();
           $last_position = count($class_array)-1;
           $class_name = $class_array[$last_position];
